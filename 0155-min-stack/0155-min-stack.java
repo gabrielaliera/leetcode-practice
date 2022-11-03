@@ -14,16 +14,13 @@ class MinStack {
         
         if(minStack.isEmpty() || val <= minStack.peek()){
             minStack.push(val);
-            //System.out.println("minStack "+val);
         }
     }
     
     public void pop() {
-        // System.out.println("pop "+minStack.peek());
-          //System.out.println("popSt "+stack.peek());
+       
         if ((int) minStack.peek() == (int) stack.peek()){
-         //  System.out.println("REmoveminStack "+minStack.peek());
-            minStack.pop();
+          minStack.pop();
         }
         stack.pop();
       

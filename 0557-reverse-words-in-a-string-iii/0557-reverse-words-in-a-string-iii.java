@@ -28,7 +28,7 @@ class Solution {
             if(charArray[rightPtr] != ' '&& rightPtr !=lastPtr){
                 rightPtr++;
             }else{
-               // System.out.println("left: "+leftPtr+"rightPtr: "+ rightPtr);
+               
                 int first= leftPtr;
                 int last;
                 if(rightPtr==lastPtr){
@@ -36,7 +36,7 @@ class Solution {
                 }else{
                     last = rightPtr-1;
                 }
-               // System.out.println("first: "+first+" last: "+ last);
+              
                 
                 while(first< last){
                     char temp = charArray[first];
@@ -47,7 +47,7 @@ class Solution {
                 }
                 leftPtr = rightPtr+1;
                 rightPtr++;
-             //  System.out.println("left2: "+leftPtr+"rightPtr2: "+ rightPtr);
+           
             }
             
             

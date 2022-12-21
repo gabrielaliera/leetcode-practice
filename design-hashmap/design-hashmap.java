@@ -42,7 +42,7 @@ class MyHashMap {
         if(!bucketArray[hash].exists(key)){
             return -1;
         } else{
-            return bucketArray[hash].get(index,key);
+            return bucketArray[hash].get(index);
         }
     }
     
@@ -50,7 +50,7 @@ class MyHashMap {
         int hash = key % primeSize;
         int index = getPostContainer(key,hash);
         if(index != -1){
-            bucketArray[hash].delete(index,key);
+            bucketArray[hash].delete(index);
         }
     }
 }
@@ -74,35 +74,15 @@ class Bucket{
     public void set(int index,int key,int value){
         Entry pair = new Entry(key,value);
         container.set(index,pair);
-        
-        // for(Entry pair: container){
-        //     if(pair.getKey() == key){
-        //         int index = container.indexOf(pair);
-        //         container.set(index,pair);
-        //     }
-        // }
     }
     
-    public int get(int index,int key){
-        
-      //  int value = -1;
+    public int get(int index){
         return container.get(index).getValue();
-        // for(Entry pair: container){
-        //     if(pair.getKey() == key){
-        //         return pair.getValue();
-        //     }
-        // }
-        // return value;
     }
     
-    public void delete(int index, int key){
+    public void delete(int index){
         Entry pair = container.get(index);
         container.remove(pair);
-        // for(Entry pair: container){
-        //     if(pair.getKey()==key){
-        //         container.remove(pair);
-        //     }
-        // }
         size--;
     }
     

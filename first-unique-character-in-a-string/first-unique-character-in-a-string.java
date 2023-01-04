@@ -1,7 +1,7 @@
 class Solution {
     public int firstUniqChar(String s) {
         HashMap<Character,Integer> map = new HashMap<>();
-        HashMap<Character,Integer> unique = new HashMap<>();
+      
         
         int index = Integer.MAX_VALUE;
         
@@ -11,11 +11,9 @@ class Solution {
             
             if(!map.containsKey(c)){
                 map.put(c,1);
-                unique.put(c,i);
         
             } else {
                 map.put(c,map.get(c)+1);
-                unique.remove(c);
             }
             
         }

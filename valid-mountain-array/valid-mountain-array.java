@@ -36,10 +36,10 @@ class Solution {
             if (max > arr[i]){ 
                 isUphill = false;
             }
-            //System.out.println("i "+i+" max: "+max);
+           
             //check for increasing
             if(arr[i-1] < arr[i] && isUphill){
-               // System.out.println("i "+i+" max: "+max);
+              
                 max = arr[i];
             //check for descreasing
             } else if (arr[i-1] > arr[i] && !isUphill && i != 1){

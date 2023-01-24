@@ -1,10 +1,6 @@
 /*
 
-two pointer
-hashmap
 
-extrap space
-add index
 
 */
 

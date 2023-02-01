@@ -36,18 +36,46 @@ class Solution {
         return head;
         
     }
+    
+    public ListNode helper(ListNode head, int size, int count){
+         
+        if(count == size/2){ return head;}
+       
+        ListNode cur = head;
+        int num = cur.val;
+        int orginalCount = count;
+        
+        while(count > 1){   
+            cur = cur.next;            
+            count--;
+        }
+         int temp = cur.val;
+         cur.val = num;
+         head.val = temp;
+        
+        return helper(head.next, size, orginalCount - 1);
+    }
+    
     public ListNode reverseList(ListNode head) {
+        //base case
+        if(head == null){ return head;}
+     
+        ListNode prev = null;
+        ListNode cur = head;
         
-        // ListNode cur = head;
-        // int num = head.val;
-        // while(cur.next != null){
-        //     cur = cur.next;
-        // }
-        // int temp = cur.val;
-        // cur.val = num;
-        // head.val = temp;
+        while(cur != null ){
+            //save cur.next to not lose
+            ListNode temp = cur.next;
+            //reserve the pointer
+            cur.next = prev;
+            //move prev pointer
+            prev = cur;
+            //move cur pointer
+            cur = temp;
+            
+        }
+        head = prev;
         
-        
-        return withStack(head);
+        return head;
     }
 }

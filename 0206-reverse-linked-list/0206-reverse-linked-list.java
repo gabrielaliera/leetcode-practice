@@ -36,25 +36,7 @@ class Solution {
         return head;
         
     }
-    
-    public ListNode helper(ListNode head, int size, int count){
-         
-        if(count == size/2){ return head;}
-       
-        ListNode cur = head;
-        int num = cur.val;
-        int orginalCount = count;
-        
-        while(count > 1){   
-            cur = cur.next;            
-            count--;
-        }
-         int temp = cur.val;
-         cur.val = num;
-         head.val = temp;
-        
-        return helper(head.next, size, orginalCount - 1);
-    }
+  
     
     public ListNode reverseList(ListNode head) {
         //base case

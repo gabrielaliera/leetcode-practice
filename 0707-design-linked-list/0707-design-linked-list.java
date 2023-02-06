@@ -55,7 +55,7 @@ class MyLinkedList {
         next.prev = toAdd;
         
         size++;
-        System.out.println("head: "+ head.next.val);
+      //  System.out.println("head: "+ head.next.val);
         
     }
     
@@ -72,17 +72,17 @@ class MyLinkedList {
         next.prev = toAdd;
          
         size++;
-        System.out.println("tail: "+ tail.prev.val);
+        //System.out.println("tail: "+ tail.prev.val);
       
     }
     
     public void addAtIndex(int index, int val) {
         
-        System.out.print("add at index size:"+ size);
+        //System.out.print("add at index size:"+ size);
         
         //edge cases
         if(index < 0 || index > size){
-            System.out.println("out of range add at index");
+            //System.out.println("out of range add at index");
             return;}
         
         //create new node
@@ -143,7 +143,7 @@ class MyLinkedList {
             
             toDelete.next = null;
             toDelete.prev = null;
-            System.out.println("Delete: "+ toDelete.val);
+           // System.out.println("Delete: "+ toDelete.val);
             
         }
              

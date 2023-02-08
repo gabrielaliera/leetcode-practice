@@ -22,7 +22,7 @@ class Solution {
 
         }
 
-        System.out.println("i "+i+" j "+j);
+      //  System.out.println("i "+i+" j "+j);
         //add the the empty array
         
         //i reach the end of array so add rest of nums2 
@@ -41,11 +41,11 @@ class Solution {
           }
         }
 
-          System.out.println("i "+i+" j "+j);
+        //  System.out.println("i "+i+" j "+j);
         //print
-        for(int num : ans){
-            System.out.print(num+" ");
-        }
+//         for(int num : ans){
+//             System.out.print(num+" ");
+//         }
         
         return ans;
     

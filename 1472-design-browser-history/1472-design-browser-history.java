@@ -69,10 +69,8 @@ class BrowserHistory {
     
         
         while(steps > 0 && cur.next != null){
-            System.out.print(cur.val+ " "+steps);
             cur = cur.next;
             steps --;
-             System.out.print(cur.val+ " "+steps);
         }
         
         if(cur == null){
@@ -88,13 +86,13 @@ class BrowserHistory {
         
         
     }
-    public void print(Node head){
-        System.out.println();
-        while(head != null){
-            System.out.print(head.val+" ");
-            head = head.next;
-        }
-    }
+    // public void print(Node head){
+    //     System.out.println();
+    //     while(head != null){
+    //         System.out.print(head.val+" ");
+    //         head = head.next;
+    //     }
+    // }
 }
 
 /**

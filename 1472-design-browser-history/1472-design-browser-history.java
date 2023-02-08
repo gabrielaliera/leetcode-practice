@@ -50,10 +50,10 @@ class BrowserHistory {
             steps--;
         }
         
-        if(cur.val.equals("")){
-            currentURL = head.next;
-            return head.next.val;
-        }
+        // if(cur.val.equals("")){
+        //     currentURL = head.next;
+        //     return head.next.val;
+        // }
         
         currentURL = cur;
        // System.out.print("\nBack:"+cur.val);

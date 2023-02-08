@@ -33,19 +33,13 @@ class BrowserHistory {
         currentURL.next = toVisit;
         
         currentURL = toVisit;
-        
-      //  System.out.println(currentURL.prev.val +"-"+ currentURL.val);
-       //System.out.println("head"+"-"+head.val);
-       // print(this.head);
     }
     
     public String back(int steps) {
         
         Node cur = currentURL;
-      //  System.out.println("\n"+cur.val+" "+cur.prev.val+steps);
-        
+    
         while(steps > 0 &&  cur != head ){
-        //    System.out.println(steps);
             cur = cur.prev;
             steps--;
         }
@@ -56,9 +50,7 @@ class BrowserHistory {
         // }
         
         currentURL = cur;
-       // System.out.print("\nBack:"+cur.val);
-      //  print(this.head);
-        
+     
         return cur.val;
         
     }
@@ -76,8 +68,7 @@ class BrowserHistory {
         if(cur == null){
             cur = cur.prev;
         }
-    // System.out.print("\nForward"+cur.val+" "+steps);
-        
+    
         //Reset currentURL
         currentURL = cur;
         
@@ -86,13 +77,7 @@ class BrowserHistory {
         
         
     }
-    // public void print(Node head){
-    //     System.out.println();
-    //     while(head != null){
-    //         System.out.print(head.val+" ");
-    //         head = head.next;
-    //     }
-    // }
+    
 }
 
 /**
@@ -101,4 +86,11 @@ class BrowserHistory {
  * obj.visit(url);
  * String param_2 = obj.back(steps);
  * String param_3 = obj.forward(steps);
+ // public void print(Node head){
+    //     System.out.println();
+    //     while(head != null){
+    //         System.out.print(head.val+" ");
+    //         head = head.next;
+    //     }
+    // }
  */

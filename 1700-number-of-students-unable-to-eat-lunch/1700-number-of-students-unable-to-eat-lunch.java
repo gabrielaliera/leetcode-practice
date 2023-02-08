@@ -25,36 +25,49 @@ return queue.size()
 
 
 class Solution {
-    public int countStudents(int[] students, int[] sandwiches) {
+//     public int countStudents(int[] students, int[] sandwiches) {
         
-        Queue<Integer> queue = new LinkedList<>();
-        int i = 0; 
+//         Queue<Integer> queue = new LinkedList<>();
+//         int i = 0; 
         
-        //add all student to queue
-        for(int stu : students){
-            queue.add(stu);
-        }
+//         //add all student to queue
+//         for(int stu : students){
+//             queue.add(stu);
+//         }
         
-        int returnCount = 0;
+//         int returnCount = 0;
         
-        while(!queue.isEmpty() && i < sandwiches.length && returnCount < queue.size()){
+//         while(!queue.isEmpty() && i < sandwiches.length && returnCount < queue.size()){
             
-            //student takes sandwhich
-            if(sandwiches[i] == queue.peek()){
-                queue.remove();
-                i++;
-                returnCount = 0;
-            //student moves to end of queue
-            } else {
-                queue.add(queue.remove());
-                returnCount++;
-            }
+//             //student takes sandwhich
+//             if(sandwiches[i] == queue.peek()){
+//                 queue.remove();
+//                 i++;
+//                 returnCount = 0;
+//             //student moves to end of queue
+//             } else {
+//                 queue.add(queue.remove());
+//                 returnCount++;
+//             }
             
+//         }
+        
+        
+//         return queue.size();
+        
+        
+//     }
+     public int countStudents(int[] students, int[] sandwiches) {
+        int[] s = new int[2];
+        for (int i = 0; i < students.length; i++) {
+            s[students[i]] ++;
         }
-        
-        
-        return queue.size();
-        
-        
+
+        for (int i = 0; i < sandwiches.length && s[sandwiches[i]] != 0; i++) {
+            System.out.println(i);
+            s[sandwiches[i]] --;
+        }
+
+        return s[0] + s[1];
     }
 }

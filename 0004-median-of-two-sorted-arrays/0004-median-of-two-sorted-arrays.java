@@ -65,9 +65,70 @@ class Solution {
 
         }
       }
+    
+    
+    //solution O(log( m+n))
+    public double findMedianBinarySearch(int[] nums1 , int[]nums2){
+        int m = nums1.length;
+        int n = nums2.length;
+        
+        //flip if nums2 is large
+        if( m > n ){
+            return findMedianBinarySearch(nums2 , nums1);
+        }
+        
+       //do bianry search on smaller array 
+        int total = m + n;
+        int half = (total +1) / 2;
+        double result = 0.0;
+        
+        //partition bounaries
+        int left = 0;
+        int right = m;
+        
+        while(left <= right){ //??? maybe
+            
+            int mid = (left + right) / 2;
+            int end = half - mid;
+            System.out.println(m);
+            
+            int left1 = (mid > 0 )? nums1[mid - 1] : Integer.MIN_VALUE;
+            int right1 = (mid < m )? nums1[mid] : Integer.MAX_VALUE;
+            
+            int left2 = (end > 0)? nums2[end - 1] : Integer.MIN_VALUE;
+            int right2 = (end < n)? nums2[end] : Integer.MAX_VALUE;
+            
+            int count = 1;
+            System.out.println(left1 +" "+right1 +" "+ left2 +" " + right2 +" "+ total);
+            //partition correct
+            if(left1 <= right2 && left2 <= right1){
+                
+                //Even total size
+                if(total % 2 == 0){
+                    
+                    result = (Math.max(left1, left2) + Math.min(right1, right2) )/2.0;
+                    
+                 //odd total size   
+                }else{
+                    result = Math.max(left1, left2);
+                }                 
+                break;
+            //partition incorrect - update pointers    
+            } else if (left1 > right2){
+                 right  = mid - 1;
+            } else {
+                 left = mid + 1;
+            }   
+            
+        }
+        return result;
+        
+        
+    }
     public double findMedianSortedArrays(int[] nums1, int[] nums2) {
         
-        int[] res = merge(nums1, nums2);
-        return median(res);
+        //int[] res = merge(nums1, nums2);
+        //return median(res);
+        return findMedianBinarySearch(nums1, nums2);
     }
 }

@@ -5,15 +5,15 @@ class Solution {
         int j = nums.length - 1;
         
         while (i <= j){
-            int mid = j - i /2;
+            int mid = (j + i) / 2;
                 
-                if(target == nums[mid]){
+            if(target == nums[mid]){
                     return mid;
-                } else if (target > nums[mid]){
+            } else if (target > nums[mid]){
                     i = mid + 1;
-                } else{
+            } else{
                     j = mid - 1;
-                }
+            }
         }
         
         return -1;

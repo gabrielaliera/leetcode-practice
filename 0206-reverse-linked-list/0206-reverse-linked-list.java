@@ -38,26 +38,52 @@ class Solution {
     }
   
     
-    public ListNode reverseList(ListNode head) {
-        //base case
-        if(head == null){ return head;}
+//     public ListNode reverseList(ListNode head) {
+//         //edge case
+//         if(head == null){ return head;}
      
-        ListNode prev = null;
-        ListNode cur = head;
+//         ListNode prev = null;
+//         ListNode cur = head;
         
-        while(cur != null ){
-            //save cur.next to not lose
-            ListNode temp = cur.next;
-            //reserve the pointer
-            cur.next = prev;
-            //move prev pointer
-            prev = cur;
-            //move cur pointer
-            cur = temp;
+//         while(cur != null ){
+//             //save cur.next to not lose
+//             ListNode temp = cur.next;
+//             //reserve the pointer
+//             cur.next = prev;
+//             //move prev pointer
+//             prev = cur;
+//             //move cur pointer
+//             cur = temp;
             
-        }
-        head = prev;
+//         }
+//         head = prev;
         
-        return head;
+//         return head;
+//     }
+    
+     public ListNode reverseList(ListNode head) {
+         
+         if(head == null){return head;}
+         
+         ListNode newHead = new ListNode();
+         newHead.next = head.next;
+         head.next = null;
+         newHead = newHead.next;
+         return reverseRecursion(head, newHead);
+     }
+    
+    
+    public ListNode reverseRecursion(ListNode head, ListNode newHead){
+
+        if(newHead == null){
+            return head;
+        }
+        
+        ListNode tmp = newHead.next;
+        newHead.next = head;
+        head = newHead;
+        newHead = tmp;
+        return reverseRecursion(head, newHead);
+        
     }
 }

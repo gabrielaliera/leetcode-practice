@@ -72,14 +72,5 @@ class Solution {
         
         return root;
     }
-    
-    public TreeNode findMinNode(TreeNode root){
-        
-        TreeNode curr = root;
-        
-        while(curr.left != null){
-            curr = curr.left;
-        }
-        return curr;        
-    }
+
 }

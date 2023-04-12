@@ -16,7 +16,9 @@
 class Solution {
     public int maxDepth(TreeNode root) {
         
-         return helper(root);
+        // return helper(root);
+       // return itDFS(root);
+        return ItBFS(root);
         
     }
     //Recursive Depth first search
@@ -33,28 +35,61 @@ class Solution {
     //Iterative DFS
     public int itDFS (TreeNode root){
        
-        Queue<TreeNode> queue = new LinkedList<>();
+        Stack<TreeNode> stack = new Stack<>();
         Stack<Integer> depths = new Stack<>();
-        queue.add(root);
-        depths.add(1);
+        stack.push(root);
+        depths.push(1);
         int depth = 0;
         int current_depth = 0;
         
-        while(!queue.isEmpty()){
+        while(!stack.isEmpty()){
             //pop
-            TreeNode cur = queue.remove();
+            TreeNode cur = stack.pop();
             current_depth = depths.pop();
+            System.out.println(cur.val +" "+ "depth "+ current_depth);
            
             if(cur != null){
                 depth = Math.max(depth, current_depth);                
                 //add child to queue
-                queue.add(root.left);
-                queue.add(root.right);
+                stack.push(root.left);
+                stack.push(root.right);
                 //add depth
-                depths.add(current_depth +1);
-                depths.add(current_depth +1);
+                depths.push(current_depth +1);
+                depths.push(current_depth +1);
             }
         }
        return depth; 
+    }
+    
+    public int ItBFS(TreeNode root){
+        
+        if(root == null){return 0;}
+        
+        Queue<TreeNode> queue = new LinkedList<>();
+        
+        queue.add(root);
+        int depth = 0;
+        
+        while(!queue.isEmpty()){
+                       
+            int levelsize = queue.size();
+            
+            for(int i=0; i< levelsize; i++){
+                TreeNode cur = queue.remove();
+            
+                if(cur.left != null){
+                    queue.add(cur.left);
+                }
+                
+                if(cur.right != null){
+                    queue.add(cur.right);
+                }
+                System.out.println(cur.val +" "+ "depth "+ depth);
+            }
+            depth++;
+            
+        }
+        return depth;
+        
     }
 }

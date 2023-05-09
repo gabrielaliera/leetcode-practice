@@ -6,7 +6,7 @@ class Solution {
     two pointer
     
     */
-    public int longestConsecutive(int[] nums) {
+    public int longestConsecutiveBrute(int[] nums) {
     
         if(nums.length == 0){
             return 0;
@@ -29,5 +29,38 @@ class Solution {
         }
         
         return Math.max(current, max);
+    }
+    
+    //With hashmap
+    public int longestConsecutive(int[] nums) {
+    
+        if(nums.length == 0){
+            return 0;
+        }
+        
+        HashSet<Integer> set = new HashSet<>();
+        for(int num : nums){
+            set.add(num);
+        }
+        
+        
+        
+        int longest = 0;
+   
+        for(int num : set){
+            
+            if(!set.contains(num - 1)){
+                int currentNum = num;
+                int current  = 1;
+                
+                while(set.contains(currentNum+1)){
+                    current++;
+                    currentNum++;
+                }
+                longest = Math.max(current, longest);
+            }
+        }
+        
+        return longest;
     }
 }

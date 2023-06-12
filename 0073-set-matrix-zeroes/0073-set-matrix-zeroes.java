@@ -37,7 +37,7 @@ class Solution {
     public void setZeroes(int[][] matrix) {
         
         Boolean hasZeroCol = false;
-        print(matrix);
+        //print(matrix);
         //Create Flags
         for(int row = 0 ; row < matrix.length ; row++){
             
@@ -54,8 +54,9 @@ class Solution {
                 }
             }
         }
-        System.out.println("After flags");
-        print(matrix);
+      //  System.out.println("After flags");
+     //   print(matrix);
+     
         //Update elementes using flags
         for(int row = 1 ; row < matrix.length ; row++){
             for(int col = 1; col < matrix[0].length; col++){
@@ -65,8 +66,8 @@ class Solution {
                 }
             }
         }
-        System.out.println("2nd iteration");
-        print(matrix);
+      //  System.out.println("2nd iteration");
+      //  print(matrix);
         
         //Change first row if need
         if(matrix[0][0] == 0){
@@ -74,8 +75,8 @@ class Solution {
                 matrix[0][col] = 0;
             }
         }
-        System.out.println("check first row");
-        print(matrix);
+     //   System.out.println("check first row");
+   //     print(matrix);
         
         //Change first col if needs
         if(hasZeroCol){
@@ -83,8 +84,8 @@ class Solution {
                 matrix[row][0] = 0;
             }
         }
-        System.out.println("check first col");
-        print(matrix);
+      //  System.out.println("check first col");
+     //   print(matrix);
        
         
     }

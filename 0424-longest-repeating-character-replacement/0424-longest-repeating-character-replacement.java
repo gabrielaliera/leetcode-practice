@@ -16,7 +16,8 @@ Plan
 */
 
 class Solution {
-    public int characterReplacement(String s, int k) {
+    
+public int characterReplacement(String s, int k) {
         
         //Edge
         if(s.length() == k){ return k;}
@@ -65,4 +66,6 @@ class Solution {
               
         return maxSubstring;
     }
+
+
 }

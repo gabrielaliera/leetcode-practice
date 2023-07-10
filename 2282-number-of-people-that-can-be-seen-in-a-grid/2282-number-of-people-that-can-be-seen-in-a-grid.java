@@ -27,8 +27,9 @@ class Solution {
         
         int m = heights.length, n = heights[0].length;
         int[][] ans = new int[m][n];
+        
         for (int i = 0; i < n; i++){ // DOWN
-            Deque<Integer> stack = new ArrayDeque<>();
+            Stack<Integer> stack = new Stack<>();
             for (int j = m - 1; j >= 0; j--){
                 while(!stack.isEmpty() && heights[j][i] > stack.peek()){
                     ans[j][i]++;

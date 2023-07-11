@@ -18,18 +18,25 @@ Outpout: Num of BST
 
 
 class Solution {
+  
+    //use map as the DP cache, store the number of unique BST that the key number can generate
+    private HashMap<Integer, Integer> map = new HashMap<>();
+    
     public int numTrees(int n) {
-        
-        int res = 0;
- 
-        // Base case
-        if (n <= 1) {
+        if (map.containsKey(n)) {
+            return map.get(n);
+        }
+        if (n == 0) {
+            map.put(0, 1);
             return 1;
         }
-        for (int i = 0; i < n; i++) {
-            res += numTrees(i) * numTrees(n - i - 1);
+        int res = 0;
+        //loop through n, because of BST, so the left side is numTrees(i - 1), and right side is numTrees(n - i)
+        for (int i = 1; i <= n; i++) {
+            res += numTrees(i - 1) * numTrees(n - i);
         }
+        //when we get the res, put it in the map
+        map.put(n, res);
         return res;
-        
     }
 }

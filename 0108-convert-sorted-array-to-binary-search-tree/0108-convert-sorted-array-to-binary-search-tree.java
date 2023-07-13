@@ -27,10 +27,11 @@ class Solution {
         }
         
         int p = (left +right)/2;
+        System.out.print("p: "+ p);
         if((left+ right) % 2  == 1){
             p++;
         }
-        
+        System.out.println(p);
         TreeNode root = new TreeNode(nums[p]);
         
         root.left= helper(left, p-1);

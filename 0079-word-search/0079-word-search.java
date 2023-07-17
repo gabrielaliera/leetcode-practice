@@ -29,7 +29,7 @@ class Solution {
         
         for(int r = 0; r < grid.length; r++){
             for(int c = 0; c < grid[0].length; c++){
-                if(dfs(grid, r, c, word)) {
+                if(dfs(grid, r, c, word, 0)) {
                     return true;
                 }
             }
@@ -37,15 +37,15 @@ class Solution {
         return false;
     }
 
-     public static boolean dfs(char[][] board, int r, int c, String word) {
+     public static boolean dfs(char[][] board, int r, int c, String word ,int index) {
         
         //Base case, whole word has been found
-        if (word.length() == 0) {
+        if ( index >= word.length()) {
             return true;
         }
         //Out of bounds or not correct character
         if( r < 0 || r >= board.length || c < 0 || c >= board[0].length || 
-            board[r][c] != word.charAt(0)){
+            board[r][c] != word.charAt(index)){
             return false;
         }
 
@@ -60,7 +60,7 @@ class Solution {
         for (int[] offset: offsets) {
             int rowOffset = offset[0];
             int colOffset = offset[1];
-            result = dfs(board , r + rowOffset, c + colOffset, word.substring(1));
+            result = dfs(board , r + rowOffset, c + colOffset, word, index + 1);
 
             // Break instead of implementing all steps and wasting our time
             if (result) {
@@ -68,7 +68,7 @@ class Solution {
             }
         }
             //Reset the char
-        board[r][c] = word.charAt(0);   
+        board[r][c] = word.charAt(index);   
 
         return result; 
             

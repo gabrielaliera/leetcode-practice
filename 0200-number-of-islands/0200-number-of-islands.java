@@ -19,8 +19,8 @@ class Solution {
         int islands = 0;
         
         //locate first island
-        for(int r=0; r<grid.length;r++){
-            for(int c=0;c<grid[0].length;c++){
+        for(int r = 0; r < grid.length; r++){
+            for(int c = 0; c < grid[0].length; c++){
                                 
                 //dfs if find 1
                 if(grid[r][c] == '1'){
@@ -37,7 +37,7 @@ class Solution {
     public void dfs(char[][]grid, int r, int c){
         
         
-        if( r < 0 || r>= grid.length || c< 0 || c >= grid[0].length || grid[r][c]== '0'){
+        if( r < 0 || r >= grid.length || c < 0 || c >= grid[0].length || grid[r][c]== '0'){
             return;
         }
             grid[r][c] = '0';

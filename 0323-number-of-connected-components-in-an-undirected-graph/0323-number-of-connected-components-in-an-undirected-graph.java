@@ -39,14 +39,13 @@ class Solution {
         //dfs will change all connected nodes to visited 
         //Once dfs ends, if visited is false again, means a new component
         boolean [] visited = new boolean[n];
-        int componets = 0;
-        
+           
         int count=0;
           for(int i = 0; i < n; i++){
               if(visited[i] == false) {
                 // apply dfs
                 dfs(adj, visited, i);
-              count++;
+                count++;
               }
           }
          return count;
@@ -57,9 +56,9 @@ class Solution {
           //Add node to visited
           visited[s] = true;
           
-          for(int v : adj.get(s)){
-              if(visited[v]==false){
-                  dfs(adj,visited,v);
+          for(int neighbor : adj.get(s)){
+              if(visited[neighbor] == false){
+                  dfs(adj,visited, neighbor);
               }
           }
       }

@@ -1,25 +1,39 @@
+/*
+
+1 1 2 
+
+
+*/
+
 class Solution {
-    public int climbStairs2(int n) {
-        if(n <= 2){
-            return n;
-        }
-         return climbStairs2(n-1) + climbStairs2(n-2);
+     HashMap<Integer, Integer> cache = new HashMap<>();
+    
+    public int climbStairs(int n ) {
+       
         
+        return climbStairsMemo(n -1) + climbStairsMemo(n-2);
     }
     
-    public int climbStairs(int n){
-         if(n <= 2){
-            return n;
+    public int climbStairsMemo(int n) {
+        
+        if( n < 0){
+            return 0;
         }
-        int prev1 = 2;
-        int prev2 = 1;
-        int current = 2;
-            
-        for(int i = 2; i < n ; i++){
-            current = prev1 + prev2;
-            prev2 = prev1;
-            prev1 = current;
+        if( n  == 0 || n== 1) {
+            cache.put(n, 1);
+            return cache.get(n);
         }
-        return current;
+        
+        if(cache.containsKey(n)){
+            return cache.get(n);
+        }
+        
+        
+        int sum = climbStairsMemo(n - 1) + climbStairsMemo(n - 2);
+        cache.put(n, sum);
+        
+        return cache.get(n);
+        
+        
     }
 }

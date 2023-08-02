@@ -29,10 +29,8 @@ class Solution {
         
         //Convert to string and sort lexugraphically
         String[] numStrings = new String[nums.length];
-        int i = 0;
-        for(int n : nums){
-            String s = String.valueOf(n);
-            numStrings[i++] = s;
+        for(int i=0; i<nums.length; i++) {
+            numStrings[i] = String.valueOf(nums[i]);
         }
         
         Arrays.sort(numStrings, new Comparator<String>() {

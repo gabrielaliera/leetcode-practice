@@ -50,21 +50,10 @@ class Solution {
        StringBuilder res = new StringBuilder();
             
         //Greedy
-        for(int j = 1; j < numStrings.length; j += 2){
-            String a = numStrings[j - 1];
-            String b = numStrings[j];
-            
-       
-            if((a + b).compareTo( b + a) > 0){
-                  res.append( a + b);        
-            } else {
-                res.append(b + a);
-            }
+        for(String s : numStrings){
+           res.append(s);
         }
-        // Handle the case when the number of elements is odd
-        if (numStrings.length % 2 != 0) {
-            res.append(numStrings[numStrings.length - 1]);
-        }
+      
         
         return res.toString();
     }

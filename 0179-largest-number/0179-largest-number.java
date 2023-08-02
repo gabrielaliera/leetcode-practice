@@ -47,7 +47,7 @@ class Solution {
         //Edge case
         if(numStrings[0].equals("0")) return "0";
        
-        String res = "";
+       StringBuilder res = new StringBuilder();
             
         //Greedy
         for(int j = 1; j < numStrings.length; j += 2){
@@ -56,16 +56,16 @@ class Solution {
             
        
             if((a + b).compareTo( b + a) > 0){
-                  res += a + b;        
+                  res.append( a + b);        
             } else {
-                res += b + a;
+                res.append(b + a);
             }
         }
         // Handle the case when the number of elements is odd
         if (numStrings.length % 2 != 0) {
-            res += numStrings[numStrings.length - 1];
+            res.append(numStrings[numStrings.length - 1]);
         }
         
-        return res;
+        return res.toString();
     }
 }

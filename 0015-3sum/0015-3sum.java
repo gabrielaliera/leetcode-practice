@@ -27,7 +27,7 @@ Plan:
 
 class Solution {
     
-    public List<List<Integer>> threeSum(int[] nums) {
+    public List<List<Integer>> threeSum2(int[] nums) {
         Arrays.sort(nums);
         List<List<Integer>> res = new ArrayList<>();
         for (int i = 0; i < nums.length && nums[i] <= 0; ++i)
@@ -52,7 +52,7 @@ class Solution {
         }
     }
     
-    public List<List<Integer>> threeSumNOTWorking(int[] nums){
+    public List<List<Integer>> threeSum(int[] nums){
       //Step 1 -Sort in ascending order - nlogn
       Arrays.sort(nums);
         
@@ -85,6 +85,8 @@ class Solution {
                     while (left < right && nums[right] == nums[right - 1]) {
                     right--; // Skip duplicates for right
                     }
+                    left++;
+                    right--;
                 
                 } else if ( target > 0 ){
                     right --;

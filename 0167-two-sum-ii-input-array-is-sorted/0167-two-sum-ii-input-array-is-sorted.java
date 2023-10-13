@@ -1,5 +1,61 @@
 class Solution {
-   /* public int[] twoSumOLD(int[] numbers, int target) {
+  
+    
+    
+    public int[] twoSum(int[] numbers, int target) {
+        
+        int left = 0;
+        int right = numbers.length - 1;
+        
+        int[] res = new int[2];
+        
+        while(left < right){
+            int sum = numbers[left] + numbers[right];
+            if(sum == target){
+                res[0] = left + 1;
+                res[1] = right+ 1;
+                break;
+            } else if (sum < target){
+                //increase left
+                left ++;
+                while(numbers[left] == numbers[left - 1]){
+                    left++;
+                }
+                
+            } else {
+                //decrease right
+                right --;
+                while(numbers[right] == numbers[right + 1]){
+                    right--;
+                }
+            }
+        }
+        
+        
+        return res;
+    }
+    
+    
+        
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    /* public int[] twoSumOLD(int[] numbers, int target) {
         
         int result[] = new int[2];
         HashMap<Integer, Integer> map = new HashMap<>();
@@ -18,7 +74,7 @@ class Solution {
         
     }
     */
-    public int[] twoSum(int[] numbers, int target) {
+    public int[] twoSumB(int[] numbers, int target) {
                
         int l = 0;
         int r = numbers.length -1;

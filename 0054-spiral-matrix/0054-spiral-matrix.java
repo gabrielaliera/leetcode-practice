@@ -11,7 +11,9 @@ class Solution {
         int right = matrix[0].length - 1;
         int top = 0;
         int bottom = matrix.length - 1 ;
-
+        
+        boolean isHop = true;
+        int value = 0;
 
         while (left <= right && top <= bottom){
             
@@ -20,6 +22,10 @@ class Solution {
             for(int i = left; i <= right; i++){
                 result.add(matrix[top][i]);
                 System.out.println(matrix[top][i]);
+                if(isHop){
+                    value = matrix[top][i];
+                }
+                isHop = !isHop;
             }
             top++;
 
@@ -28,6 +34,10 @@ class Solution {
             for(int j = top; j <= bottom ; j++){
                 result.add(matrix[j][right]);
                 System.out.println(matrix[j][right]);
+                if(isHop){
+                    value = matrix[j][right];
+                }
+                isHop = !isHop;
             }
             right--;
 
@@ -39,6 +49,10 @@ class Solution {
                 for (int i = right; i >= left; i--) {
                     result.add(matrix[bottom][i]);
                     System.out.println("w"+matrix[bottom][i]);
+                    if(isHop){
+                        value = matrix[bottom][i];
+                    }
+                    isHop = !isHop;
                 }
               
             }
@@ -49,6 +63,10 @@ class Solution {
                 for (int j = bottom; j >= top; j--) {
                     result.add(matrix[j][left]);
                     System.out.println(matrix[j][left]);
+                    if(isHop){
+                        value = matrix[j][left];
+                    }
+                    isHop = !isHop;
                 }
                
             }
@@ -56,6 +74,7 @@ class Solution {
 
            
         }
+        System.out.println("last hop" + value);
         return result;
         
     }

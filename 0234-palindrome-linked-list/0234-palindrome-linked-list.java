@@ -9,7 +9,51 @@
  * }
  */
 class Solution {
+    
     public boolean isPalindrome(ListNode head) {
+        
+        //edge case head null
+        
+        //Use fast and slow to find middle
+        ListNode slow = head;
+        ListNode fast = head;
+        
+        while(fast != null && fast.next != null){
+            slow = slow.next;
+            fast = fast.next.next;
+        }
+        
+        //reverse second half
+        ListNode prev = null;
+        ListNode cur = slow;
+        ListNode next = null;
+        
+        while(cur != null){
+            next = cur.next;
+            cur.next = prev;
+            prev = cur;
+            cur = next;
+        }
+        ListNode secondStart = prev;      
+        //check if palidrome - start of head and 2ndstart head
+        
+        while( secondStart != null ){
+            if(head.val != secondStart.val){
+                return false;
+            }
+            head = head.next;
+            secondStart = secondStart.next;
+        }
+        return true;
+    }
+    
+    
+     
+    
+    
+    
+    
+    public boolean isPalindrome2(ListNode head) {
          //edge cases
         if (head == null || head.next == null){
           return true;

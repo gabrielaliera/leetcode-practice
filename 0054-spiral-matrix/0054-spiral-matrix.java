@@ -1,5 +1,73 @@
 class Solution {
-    public List<Integer> spiralOrder(int[][] matrix) {
+        
+        /*
+        
+        move right
+        move down 
+        move left
+        move up
+        
+        
+        */
+    
+        public List<Integer> spiralOrder(int[][] matrix) {
+            
+            List<Integer> res = new ArrayList<>();
+            
+            int m = matrix.length;
+            int n = matrix[0].length;
+            
+            int left = 0;
+            int right = matrix[0].length - 1;
+            
+            int top = 0;
+            int bottom = matrix.length -1;
+            
+            while( left <= right && top <= bottom ){
+                
+                //move across matrix[top][i]
+                for(int i = left ; i <= right ; i++){
+                    res.add(matrix[top][i]);
+                }
+                top++;
+                
+                //move down matrix[j][right]
+                for(int j = top; j <= bottom; j++){
+                    res.add(matrix[j][right]);
+                }
+                right--;
+                
+                //move left matrix[bottom][k]
+                if( top <= bottom){
+                    for(int k = right; k >= left; k-- ){
+                        res.add(matrix[bottom][k]);
+                    }
+                      
+                }
+                 bottom --;
+                
+               if(left <= right){
+                    //move up matirx[p][left]
+                for(int p = bottom; p >= top ; p--){
+                    res.add(matrix[p][left]);
+                }
+               
+               }
+                left++;
+               
+            }
+            return res;
+        }
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    public List<Integer> spiralOrder2(int[][] matrix) {
          // Replace this placeholder return statement with your code
         List<Integer> result = new ArrayList<>();
 
